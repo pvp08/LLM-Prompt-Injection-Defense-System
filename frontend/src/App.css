@@ -1,0 +1,122 @@
+/* CRT Scanlines overlay */
+.scanlines {
+  position: relative;
+}
+.scanlines::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: repeating-linear-gradient(
+    0deg,
+    transparent,
+    transparent 2px,
+    rgba(0, 255, 153, 0.015) 2px,
+    rgba(0, 255, 153, 0.015) 4px
+  );
+  pointer-events: none;
+  z-index: 1;
+}
+
+/* Glow effects */
+.glow-green {
+  box-shadow: 0 0 15px rgba(0, 255, 153, 0.3), 0 0 30px rgba(0, 255, 153, 0.1);
+}
+.glow-red {
+  box-shadow: 0 0 15px rgba(255, 51, 51, 0.3), 0 0 30px rgba(255, 51, 51, 0.1);
+}
+.glow-cyan {
+  box-shadow: 0 0 10px rgba(0, 204, 255, 0.2);
+}
+.text-glow-green {
+  text-shadow: 0 0 10px rgba(0, 255, 153, 0.5);
+}
+.text-glow-red {
+  text-shadow: 0 0 10px rgba(255, 51, 51, 0.5);
+}
+
+/* Terminal cursor */
+.terminal-cursor::after {
+  content: '_';
+  animation: blink 1s step-end infinite;
+  color: #00FF99;
+  font-family: 'JetBrains Mono', monospace;
+}
+@keyframes blink {
+  50% { opacity: 0; }
+}
+
+/* Pulse animation */
+@keyframes pulse-glow {
+  0%, 100% { box-shadow: 0 0 5px rgba(0, 255, 153, 0.2); }
+  50% { box-shadow: 0 0 20px rgba(0, 255, 153, 0.4); }
+}
+.pulse-green {
+  animation: pulse-glow 2s ease-in-out infinite;
+}
+
+/* Layer pipeline connector */
+.pipeline-connector {
+  position: relative;
+}
+.pipeline-connector::before {
+  content: '';
+  position: absolute;
+  left: 50%;
+  top: -12px;
+  width: 2px;
+  height: 12px;
+  background: #333;
+}
+
+/* Stat card hover */
+.stat-card {
+  transition: all 0.2s ease;
+  border: 1px solid #333;
+}
+.stat-card:hover {
+  border-color: #555;
+  transform: translateY(-2px);
+}
+
+/* Badge styles */
+.badge-blocked {
+  background: rgba(255, 51, 51, 0.15);
+  color: #FF3333;
+  border: 1px solid rgba(255, 51, 51, 0.3);
+}
+.badge-passed {
+  background: rgba(0, 255, 153, 0.15);
+  color: #00FF99;
+  border: 1px solid rgba(0, 255, 153, 0.3);
+}
+
+/* Loading spinner */
+@keyframes spin-slow {
+  to { transform: rotate(360deg); }
+}
+.spin-slow {
+  animation: spin-slow 2s linear infinite;
+}
+
+/* Entrance animation */
+@keyframes fade-in-up {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+.fade-in-up {
+  animation: fade-in-up 0.3s ease-out forwards;
+}
+
+/* Noise texture */
+.noise-bg {
+  position: relative;
+}
+.noise-bg::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  opacity: 0.03;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
+  pointer-events: none;
+  z-index: 0;
+}
