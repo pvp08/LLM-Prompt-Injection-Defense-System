@@ -1,0 +1,119 @@
+{
+  "project_identity": {
+    "name": "Prompt Injection Defense System",
+    "persona": "E1 - Cyber Defense Architect",
+    "emotional_archetype": "The Performance Pro (Elite Cybersec) / Electric & Neon",
+    "vibe": "Terminal, Hacker-Proof, High-Precision, Real-Time",
+    "theme_mode": "dark"
+  },
+  "typography": {
+    "heading_font": "JetBrains Mono",
+    "body_font": "IBM Plex Sans",
+    "mono_font": "JetBrains Mono",
+    "google_fonts_import": "https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500;700&display=swap",
+    "rules": [
+      "Headings (H1-H3) MUST use JetBrains Mono.",
+      "Body text MUST use IBM Plex Sans for readability.",
+      "Data values, logs, and code snippets MUST use JetBrains Mono.",
+      "Use uppercase with wide tracking (tracking-widest) for labels and overlines."
+    ]
+  },
+  "colors": {
+    "palette": {
+      "background": "#050505",
+      "surface": "#0A0A0A",
+      "surface_highlight": "#121212",
+      "border": "#333333",
+      "border_highlight": "#555555",
+      "primary": "#00FF99",
+      "secondary": "#00CCFF",
+      "danger": "#FF3333",
+      "warning": "#FFD700",
+      "text_primary": "#E0E0E0",
+      "text_secondary": "#888888",
+      "accent_glow": "rgba(0, 255, 153, 0.15)"
+    },
+    "usage": {
+      "primary": "Safe states, Success actions, Main CTAs, 'System Active' indicators",
+      "danger": "Attack Detected, Blocked, High Risk, Destructive actions",
+      "warning": "Suspicious, Anomaly Detected",
+      "secondary": "Info, Data Visualization, Neutral states",
+      "background": "Global background. NEVER use pure black #000000, use #050505 to avoid OLED smearing and harsh contrast."
+    }
+  },
+  "spacing_layout": {
+    "scale": "Generous (Tailwind p-6, p-8, p-12)",
+    "grid_system": "Bento Grid Mode B (High Density)",
+    "container_padding": "p-6 md:p-8",
+    "border_radius": "rounded-sm (2px or 4px) - Sharp edges preferred for 'tech' feel",
+    "rules": [
+      "Use 'gap-4' or 'gap-6' for dense dashboards.",
+      "Containers with borders MUST have internal padding (p-6) to prevent text collision.",
+      "Mobile-first: grid-cols-1 on mobile, grid-cols-4 or grid-cols-12 on desktop."
+    ]
+  },
+  "components": {
+    "buttons": {
+      "style": "Sharp edges, 1px solid border. Hover: Fill color or Glow effect.",
+      "classes": "rounded-sm border border-primary text-primary hover:bg-primary hover:text-black transition-all duration-200 font-mono uppercase tracking-wider"
+    },
+    "cards": {
+      "style": "Flat dark surface, 1px border. No heavy shadows. Technical look.",
+      "classes": "bg-card border border-border/40 rounded-sm"
+    },
+    "inputs": {
+      "style": "Terminal input style. Dark background, monospace font.",
+      "classes": "bg-black/50 border-border focus:border-primary font-mono rounded-sm"
+    },
+    "charts": {
+      "library": "Recharts (via Shadcn)",
+      "style": "Minimal axes, neon strokes, dark tooltip backgrounds.",
+      "colors": ["#00FF99", "#FF3333", "#00CCFF", "#FFD700"]
+    }
+  },
+  "visual_enhancers": {
+    "scanlines": "Overlay a repeating linear gradient to simulate CRT scanlines on the main dashboard container. (pointer-events-none)",
+    "glow_effects": "Use drop-shadow or box-shadow with color to create 'neon' glow on active elements.",
+    "terminal_cursor": "Use a blinking block cursor for the Attack Playground input.",
+    "glassmorphism": "Use sparingly. Only for sticky headers or modals. High blur (backdrop-blur-xl), low opacity."
+  },
+  "assets": {
+    "images": [
+      {
+        "category": "auth_background",
+        "url": "https://images.unsplash.com/photo-1669054626218-f0b57b8ec632?crop=entropy&cs=srgb&fm=jpg&q=85",
+        "description": "Abstract digital data stream/matrix green for Login Page background."
+      }
+    ],
+    "icons": "Lucide React. Use 'ShieldAlert', 'Terminal', 'Activity', 'Lock', 'Cpu', 'Fingerprint', 'Ghost' (for prompt injection)."
+  },
+  "motion": {
+    "type": "Micro-interactions & Real-time Feedback",
+    "rules": [
+      "Instant feedback on inputs.",
+      "Smooth transitions (duration-200) for hover states.",
+      "Animate chart data updates.",
+      "Use 'AnimatePresence' for log entries appearing."
+    ]
+  },
+  "accessibility": {
+    "contrast": "Ensure text labels on colored badges meet 4.5:1 ratio. Use black text on neon backgrounds.",
+    "focus_states": "Visible focus rings (ring-2 ring-primary) for keyboard navigation.",
+    "reduced_motion": "Respect 'prefers-reduced-motion'."
+  },
+  "universal_guidelines": [
+    "Use 'data-testid' on ALL interactive elements (buttons, inputs, chart containers).",
+    "DO NOT use gradients for backgrounds. Use solid dark colors or subtle noise textures.",
+    "The UI should feel like a tool used by a professional, not a video game. Balance 'cool' with 'usable'.",
+    "Defense Layer Visualization: Use a horizontal pipeline flow (Input -> Layer 1 -> Layer 2 -> ... -> Output).",
+    "Logs: Display them in a monospaced list, resembling a server log tail."
+  ],
+  "instructions_to_main_agent": [
+    "Initialize the app with the dark theme class by default.",
+    "Install 'clsx' and 'tailwind-merge' for class handling if not present.",
+    "Install 'recharts' for the dashboard charts.",
+    "Install 'framer-motion' for animations.",
+    "Create a 'Layout' component that applies the global dark background and font styles.",
+    "Use the provided image URL for the Login page background (cover, low brightness)."
+  ]
+}
